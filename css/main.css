@@ -1,0 +1,334 @@
+@keyframes rotate{
+    0%{ -webkit-transform: rotate(360deg);}
+    50%{ -webkit-transform: rotate(180deg);}
+    100%{ -webkit-transform: rotate(0deg);}
+}
+
+
+.list-group-item {
+    padding: .75rem 1.25rem;
+}
+
+a.list-group-item:hover{
+    filter: brightness(0.95);
+}
+
+a, a:active, a:hover {
+    color: rgb(204, 66, 114);
+}
+
+pre a[href]:before,
+pre a.distro[href]:before,
+pre a.distro[href$="/"]:before {
+    content: "";
+    padding: 5px 25px 0 0;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+a[href]:before {
+    vertical-align: sub;
+    margin-right: 5px;
+    background: url(../images/icons/file.svg);
+}
+
+a[href$="/"]:before {
+    background: url(../images/icons/folder.svg);
+}
+
+a[href$="../"]:before {
+    background: url(../images/icons/back.svg);
+}
+
+a.distro[href$="archlinux/"]:before {
+    background: url(../images/icons/dists/arch.svg);
+    background-size: contain;
+}
+
+a.distro[href$="centos/"]:before {
+    background: url(../images/icons/dists/centos.svg);
+    background-size: contain;
+}
+
+a.distro[href$="debian/"]:before {
+    background: url(../images/icons/dists/debian.svg);
+    background-size: contain;
+}
+
+a.distro[href$="gnu/"]:before {
+    background: url(../images/icons/dists/gnu.svg);
+    background-size: contain;
+}
+
+a.distro[href$="linuxmint/"]:before {
+    background: url(../images/icons/dists/mint.svg);
+    background-size: contain;
+}
+
+a.distro[href$="ubuntu/"]:before {
+    background: url(../images/icons/dists/ubuntu.svg);
+    background-size: contain;
+}
+
+a[href$=".iso"]:before {
+    background: url(../images/icons/cd.svg);
+    background-size: contain;
+}
+
+a[href$=".sig"]:before {
+    background: url(../images/icons/signature.svg);
+    background-size: contain;
+}
+
+a[href$=".rar"]:before,
+a[href$=".zip"]:before,
+a[href$=".gz"]:before,
+a[href$=".7z"]:before,
+a[href$=".bz"]:before,
+a[href$=".xz"]:before,
+a[href$=".tar"]:before{
+    background: url(../images/icons/compressed.svg);
+    background-size: contain;
+}
+
+.tagshow {
+    float: right;
+    color: rgb(204, 66, 114);
+}
+
+.not-found {
+    color: darkgrey;
+    margin-top: 40px;
+    margin-bottom: 110px;
+    font-size: 40px;
+    text-align: center;
+}
+
+span.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain !important;
+    vertical-align: middle;
+}
+
+span.not-found-icon {
+    margin-right: 15px;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: url(../images/icons/thinking.svg);
+    background-size: contain;
+    opacity: 0.5;
+    vertical-align: middle;
+}
+
+span.email {
+    margin-right: 5px;
+    background: url(../images/icons/email.svg);
+}
+
+span.search {
+    margin-right: 5px;
+    background: url(../images/icons/search.svg);
+}
+
+
+span.qq {
+    margin-right: 5px;
+    background: url(../images/icons/qq.svg);
+}
+
+span.time {
+    margin-right: 5px;
+    background: url(../images/icons/time.svg);
+}
+
+span.time.time-syncing {
+    animation:rotate 5s linear infinite;
+    background: url(../images/icons/time-syncing.svg);
+}
+
+span.time.time-failed {
+    background: url(../images/icons/time-failed.svg);
+}
+
+h1, h2, h3, h4, p, span {
+    color: antiquewhite;
+}
+
+footer {
+    background-color: rgb(209, 114, 147);
+}
+
+footer a, footer a:active, footer a:hover {
+    color: antiquewhite;
+}
+
+.footer-head .logo {
+    text-align: center;
+}
+
+footer .footer-buttom {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 10px;
+    background-color: rgb(204, 66, 114);;
+}
+
+.footer-head div {
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.footer-head {
+    padding-top: 40px;
+    background-color: rgb(209, 114, 147);
+}
+
+.jumbotron {
+    margin-bottom: 0rem !important;
+    border-radius: 0;
+    text-align: center;
+    background-color: rgb(204, 66, 114);
+    padding: 4rem 2rem;
+}
+
+.quick-nav {
+    padding: 9px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+}
+
+@media screen and (max-width: 900px) {
+    #logo-buttom {
+        width: 30%;
+        height: auto;
+    }
+    .navbar {
+        padding-top: 10px !important;
+    }
+    .quick-nav {
+        display: none;
+    }
+    .jumbotron {
+        padding-bottom: 1rem;
+    }
+}
+
+.navbar {
+    margin: auto;
+    text-align: center;
+    max-width: 1500px;
+    padding-top: 30px;
+    padding-inline-start: 50px;
+    padding-inline-end: 50px;
+    background-color: rgb(204, 66, 114);
+}
+
+.navbar.solid {
+    padding-top: 10px;
+    background-color: #490D40;
+    transition: background-color 1s ease 0s;
+    box-shadow: 0 0 4px grey;
+  }
+
+.nav-item {
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+}
+
+.index-header {
+    margin-top: 3.5em;
+}
+
+.index-main {
+    min-height: 300px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.popular,.package-info {
+    width: 100%
+}
+
+.popular ol,.popular ul,.package-info ol,.package-info ul {
+    margin-bottom: 0
+}
+
+.popular ul>li{
+    display: inline-block;
+}
+
+.popular ul>li:last-child a img{
+    padding-right: 0
+}
+
+.popular ul>li a {
+    display: block;
+    font-size: 0;
+    line-height: 1;
+    text-decoration: none;
+    filter: grayscale(90%);
+    opacity: .6
+}
+
+.popular ul>li a:hover {
+    filter: none;
+    opacity: 1
+}
+
+.popular ul>li a img {
+    height: 40px;
+    width: auto;
+    vertical-align: bottom;
+    padding-right: 36px
+}
+
+.list-group {
+    padding-bottom: 10px;
+}
+
+#search {
+    margin: auto;
+    margin-top: 40px;
+    background: rgb(201, 93, 130);
+    align-items: center;
+    border-radius: 10px;
+    justify-content: space-between;
+    padding: 0.5em 0.5em 0.5em 1em;
+    transition: all 0.5s;
+    max-width: 500px;
+  }
+  #search:hover, #search:focus {
+    background: rgb(206, 117, 148);
+  }
+  #search input {
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    outline: 0;
+    flex: 1;
+  }
+  #search input::placeholder {
+    color: rgba(255, 255, 255, 0.493);
+  }
+  #search input[type=text] {
+    color: rgba(255, 255, 255, 0.493);
+  }
+
+  #search input:focus::placeholder{
+    color:transparent;
+}
+
+#search .icon {
+    position: absolute;
+    margin-left: -30px;
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+}
