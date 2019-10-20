@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var item_number = 0;
   var isRootDir = GetUrlRelativePath().split("/").length == 2;
   $("h1:contains(Index of /)").remove();
@@ -20,14 +20,14 @@ $(document).ready(function() {
   $(".index-main")
     .children("pre")
     .children("a")
-    .each(function(index, item) {
+    .each(function (index, item) {
       if (item.innerText === "../") return;
       var text_add = null;
       item_number++;
       var show_arr = item.nextSibling.textContent
         .trim()
         .split("  ")
-        .filter(function(entry) {
+        .filter(function (entry) {
           return entry.trim() != "";
         });
       var tag_show = document.createElement("div");
@@ -49,12 +49,12 @@ $(document).ready(function() {
   $(".index-main")
     .children("pre")
     .contents()
-    .filter(function() {
+    .filter(function () {
       return this.nodeType == 3;
     })
     .remove();
 
-  $(function() {
+  $(function () {
     $("#input").fastLiveFilter(".list-group");
   });
 
@@ -67,7 +67,7 @@ $(document).ready(function() {
     $(".index-main")
       .children("pre")
       .children("a")
-      .each(function(index, item) {
+      .each(function (index, item) {
         item.setAttribute(
           "id",
           item.innerText.split("\n")[0].replace(/\//g, "")
@@ -77,8 +77,8 @@ $(document).ready(function() {
     RefreshStatus();
   } else {
     if (item_number === 0) {
-        var not_found = $('<div class="container not-found">您来到了没有文件的荒岛</div>')
-        not_found.prepend($('<span class="not-found-icon"></span>'))
+      var not_found = $('<div class="container not-found">您来到了没有文件的荒岛</div>')
+      not_found.prepend($('<span class="not-found-icon"></span>'))
       $(".index-main").append(not_found);
     }
     $("#item-counter-p").remove();
@@ -86,7 +86,7 @@ $(document).ready(function() {
     $(".quick-nav").remove();
   }
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 400) {
       $(".navbar").addClass("solid");
     } else {
@@ -96,14 +96,14 @@ $(document).ready(function() {
 });
 
 $.extend({
-  replaceTag: function(
+  replaceTag: function (
     element,
     tagName,
     withDataAndEvents,
     deepWithDataAndEvents
   ) {
     var newTag = $("<" + tagName + ">")[0];
-    $.each(element.attributes, function() {
+    $.each(element.attributes, function () {
       newTag.setAttribute(this.name, this.value);
     });
     $(element)
@@ -114,8 +114,8 @@ $.extend({
   }
 });
 $.fn.extend({
-  replaceTag: function(tagName, withDataAndEvents, deepWithDataAndEvents) {
-    return this.map(function() {
+  replaceTag: function (tagName, withDataAndEvents, deepWithDataAndEvents) {
+    return this.map(function () {
       return jQuery.replaceTag(
         this,
         tagName,
@@ -143,14 +143,14 @@ function RefreshStatus() {
   $.ajax({
     url: "/status/",
     type: "GET",
-    success: function(data) {
+    success: function (data) {
       $(data)
         .children("a")
-        .each(function(index, item) {
+        .each(function (index, item) {
           var show_arr = item.nextSibling.textContent
             .trim()
             .split("  ")
-            .filter(function(entry) {
+            .filter(function (entry) {
               return entry.trim() != "";
             });
           if (show_arr.length == 2) {
@@ -176,6 +176,13 @@ function RefreshStatus() {
                 $("#" + item.innerText + " .tagshow").replaceWith(time_show);
                 break;
               default:
+                var time_show = document.createElement("div");
+                var time_icon = document.createElement("span");
+                time_icon.className = "icon time";
+                time_show.className = "tagshow";
+                time_show.appendChild(time_icon);
+                time_show.appendChild(document.createTextNode(show_arr[0]));
+                $("#" + item.innerText + " .tagshow").replaceWith(time_show);
                 break;
             }
           }
