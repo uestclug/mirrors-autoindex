@@ -17,34 +17,36 @@ $(document).ready(function () {
     .children("pre")
     .children("a")
     .addClass("list-group-item");
-  $(".index-main")
-    .children("pre")
-    .children("a")
-    .each(function (index, item) {
-      if (item.innerText === "../") return;
-      var text_add = null;
-      item_number++;
-      var show_arr = item.nextSibling.textContent
-        .trim()
-        .split("  ")
-        .filter(function (entry) {
-          return entry.trim() != "";
-        });
-      var tag_show = document.createElement("div");
-      var before_icon = document.createElement("span");
-      if (isRootDir) {
-        text_add = show_arr[0];
-        before_icon.className = "icon time";
-      } else {
-        text_add = show_arr[1];
-        before_icon.className = "size";
-      }
-      tag_show.appendChild(before_icon);
-      tag_show.className = "tagshow";
-      tag_show.appendChild(document.createTextNode(text_add));
-      item.appendChild(tag_show);
-      item.nextSibling.remove();
-    });
+  var item_number = $(".index-main").children("pre").children("a").length;
+  if (item_number <= 100){
+    $(".index-main")
+      .children("pre")
+      .children("a")
+      .each(function (index, item) {
+        if (item.innerText === "../") return;
+        var text_add = null;
+        var show_arr = item.nextSibling.textContent
+          .trim()
+          .split("  ")
+          .filter(function (entry) {
+            return entry.trim() != "";
+          });
+        var tag_show = document.createElement("div");
+        var before_icon = document.createElement("span");
+        if (isRootDir) {
+          text_add = show_arr[0];
+          before_icon.className = "icon time";
+        } else {
+          text_add = show_arr[1];
+          before_icon.className = "size";
+        }
+        tag_show.appendChild(before_icon);
+        tag_show.className = "tagshow";
+        tag_show.appendChild(document.createTextNode(text_add));
+        item.appendChild(tag_show);
+        item.nextSibling.remove();
+      });
+  }
 
   $(".index-main")
     .children("pre")
@@ -73,7 +75,7 @@ $(document).ready(function () {
           item.innerText.split("\n")[0].replace(/\//g, "")
         );
       });
-    $("#item-counter").text(item_number);
+    $("#item-counter").text(item_number - 1);
     RefreshStatus();
   } else {
     if (item_number === 0) {
